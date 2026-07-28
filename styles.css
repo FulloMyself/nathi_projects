@@ -455,6 +455,7 @@ p {
     display: flex;
     align-items: center;
     justify-content: center;
+    zoom: 10000%;
 }
 
 .hero-image-wrapper {
@@ -474,7 +475,7 @@ p {
 }
 
 .hero-image-wrapper:hover .hero-image {
-    transform: scale(1.05);
+    transform: scale(1.5);
 }
 
 /* Stat Strip */

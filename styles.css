@@ -567,6 +567,7 @@ p { color: var(--color-muted); font-size: 1rem; }
     display: flex;
     align-items: center;
     justify-content: center;
+    zoom: 100000%;
 }
 
 .hero-image-wrapper {
@@ -583,6 +584,7 @@ p { color: var(--color-muted); font-size: 1rem; }
     height: 100%;
     object-fit: cover;
     transition: transform var(--transition-slow);
+    scale: 1.5;
 }
 
 .hero-image-wrapper:hover .hero-image { transform: scale(1.05); }

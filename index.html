@@ -4,19 +4,19 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
   <title>Nathi Projects • Building Solutions | NHBRC & CIDB Registered</title>
-  <meta name="description" content="Nathi Projects - Professional construction, renovations, and paving services in Gauteng. NHBRC and CIDB registered building solutions company.">
-  <meta name="keywords" content="construction, renovations, paving, Gauteng, NHBRC, CIDB, Nathi Projects, building solutions">
+  <meta name="description" content="Nathi Projects - Professional construction, renovations, paving, electrical, plumbing, and security solutions in the Vaal Region. NHBRC and CIDB registered.">
+  <meta name="keywords" content="construction, renovations, paving, electrical, plumbing, security, Vaal Region, NHBRC, CIDB, Nathi Projects">
   
-  <!-- Favicon - Multiple formats for all browsers -->
+  <!-- Favicon -->
   <link rel="icon" type="image/x-icon" href="./IMAGES/favicon.ico">
   <link rel="icon" type="image/png" sizes="32x32" href="./IMAGES/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="./IMAGES/favicon-16x16.png">
   <link rel="apple-touch-icon" sizes="180x180" href="./IMAGES/apple-touch-icon.png">
   <link rel="manifest" href="./IMAGES/site.webmanifest">
   
-  <!-- Open Graph / Social Media -->
+  <!-- Open Graph -->
   <meta property="og:title" content="Nathi Projects • Building Solutions">
-  <meta property="og:description" content="Professional construction, renovations, and paving across Gauteng. Quality craftsmanship you can trust.">
+  <meta property="og:description" content="Professional construction, renovations, and paving across the Vaal Region. Quality craftsmanship you can trust.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://nathiholdings.co.za">
   <meta property="og:image" content="https://fullomyself.github.io/nathi_projects/IMAGES/Logo.jpeg">
@@ -53,6 +53,7 @@
         <a href="#services" class="nav-link">Services</a>
         <a href="#about" class="nav-link">About</a>
         <a href="#projects" class="nav-link">Projects</a>
+        <a href="#testimonials" class="nav-link">Reviews</a>
         <a href="#contact" class="nav-link">Contact</a>
       </nav>
       
@@ -88,8 +89,7 @@
             </div>
             <h1>YOUR VISION <span>OUR EXPERTISE!</span></h1>
             <p class="hero-sub">
-              Professional construction, renovations, and paving across Gauteng. 
-              Quality craftsmanship you can trust.
+              Professional construction, renovations, paving, electrical, plumbing & security solutions across the Vaal Region.
             </p>
             <div class="badge-row">
               <span class="accred-badge">
@@ -122,7 +122,7 @@
           <div class="hero-visual">
             <div class="hero-image-wrapper">
               <img 
-                src="./IMAGES/Logo.jpeg" 
+                src="./IMAGES/Construction_Services.jpeg" 
                 alt="Nathi Projects Construction Services" 
                 class="hero-image"
                 loading="eager"
@@ -134,7 +134,7 @@
         <!-- Stat Strip -->
         <div class="stat-strip">
           <div class="stat-item">
-            <span class="stat-number" data-count="12" data-duration="2000">0</span>
+            <span class="stat-number" data-count="8" data-duration="2000">0</span>
             <span class="stat-plus">+</span>
             <div class="stat-label">Years Experience</div>
           </div>
@@ -146,8 +146,9 @@
           </div>
           <div class="stat-divider"></div>
           <div class="stat-item">
-            <span class="stat-number" data-count="3" data-duration="1500">0</span>
-            <div class="stat-label">Areas Served</div>
+            <span class="stat-number" data-count="12" data-duration="1500">0</span>
+            <span class="stat-plus">+</span>
+            <div class="stat-label">Services Offered</div>
           </div>
         </div>
       </div>
@@ -161,9 +162,20 @@
           <p class="section-subtitle">Comprehensive building solutions tailored to your needs</p>
         </div>
         
+        <!-- Service Categories -->
+        <div class="service-categories">
+          <button class="service-filter-btn active" data-category="all">All Services</button>
+          <button class="service-filter-btn" data-category="construction">Construction</button>
+          <button class="service-filter-btn" data-category="renovation">Renovations</button>
+          <button class="service-filter-btn" data-category="installation">Installations</button>
+          <button class="service-filter-btn" data-category="security">Security</button>
+          <button class="service-filter-btn" data-category="maintenance">Maintenance</button>
+        </div>
+        
         <div class="swiper" id="servicesSwiper">
           <div class="swiper-wrapper">
-            <div class="swiper-slide">
+            <!-- Construction Services -->
+            <div class="swiper-slide" data-category="construction">
               <div class="service-card">
                 <div class="service-image-wrapper">
                   <img src="./IMAGES/Construction_Services.jpeg" alt="Residential & Commercial Construction" class="service-image" loading="lazy">
@@ -171,11 +183,26 @@
                 <div class="service-content">
                   <h3>Residential & Commercial Construction</h3>
                   <p>New builds, structural work, and complete project management with NHBRC compliance.</p>
+                  <span class="service-tag">Construction</span>
                 </div>
               </div>
             </div>
             
-            <div class="swiper-slide">
+            <div class="swiper-slide" data-category="construction">
+              <div class="service-card">
+                <div class="service-image-wrapper">
+                  <img src="./IMAGES/Steel_Structure_Construction.jpeg" alt="Steel Structure Construction" class="service-image" loading="lazy">
+                </div>
+                <div class="service-content">
+                  <h3>Steel Structure Construction</h3>
+                  <p>Custom steel frameworks, carports, and industrial structures with precision engineering.</p>
+                  <span class="service-tag">Construction</span>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Renovation Services -->
+            <div class="swiper-slide" data-category="renovation">
               <div class="service-card">
                 <div class="service-image-wrapper">
                   <img src="./IMAGES/House_Renovations.jpeg" alt="House Renovations & Remodeling" class="service-image" loading="lazy">
@@ -183,47 +210,172 @@
                 <div class="service-content">
                   <h3>Renovations & Remodeling</h3>
                   <p>Modern upgrades, extensions, and full home makeovers that add value to your property.</p>
+                  <span class="service-tag">Renovation</span>
                 </div>
               </div>
             </div>
             
-            <div class="swiper-slide">
+            <div class="swiper-slide" data-category="renovation">
               <div class="service-card">
                 <div class="service-image-wrapper">
-                  <img src="./IMAGES/Pavement_Installation.jpeg" alt="Paving Installation Services" class="service-image" loading="lazy">
+                  <img src="./IMAGES/Bathroom_Renovations.jpeg" alt="Bathroom Renovations" class="service-image" loading="lazy">
                 </div>
                 <div class="service-content">
-                  <h3>Paving & Driveway Installation</h3>
-                  <p>Professional paving solutions for driveways, walkways, and commercial spaces.</p>
+                  <h3>Bathroom Renovations</h3>
+                  <p>Complete bathroom transformations with modern fixtures, tiling, and waterproofing.</p>
+                  <span class="service-tag">Renovation</span>
                 </div>
               </div>
             </div>
             
-            <div class="swiper-slide">
+            <div class="swiper-slide" data-category="renovation">
+              <div class="service-card">
+                <div class="service-image-wrapper">
+                  <img src="./IMAGES/Kitchen_Renovations.jpeg" alt="Kitchen Renovations" class="service-image" loading="lazy">
+                </div>
+                <div class="service-content">
+                  <h3>Kitchen Renovations</h3>
+                  <p>Custom kitchen designs with modern cabinetry, countertops, and appliance installation.</p>
+                  <span class="service-tag">Renovation</span>
+                </div>
+              </div>
+            </div>
+            
+            <div class="swiper-slide" data-category="renovation">
+              <div class="service-card">
+                <div class="service-image-wrapper">
+                  <img src="./IMAGES/Interior_Design.jpeg" alt="Interior Design" class="service-image" loading="lazy">
+                </div>
+                <div class="service-content">
+                  <h3>Interior Design & Finishing</h3>
+                  <p>Professional interior design, painting, tiling, and finishing for modern living spaces.</p>
+                  <span class="service-tag">Renovation</span>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Installation Services -->
+            <div class="swiper-slide" data-category="installation">
+              <div class="service-card">
+                <div class="service-image-wrapper">
+                  <img src="./IMAGES/Pavement_Installation.jpeg" alt="Paving Installation" class="service-image" loading="lazy">
+                </div>
+                <div class="service-content">
+                  <h3>Paving Installation</h3>
+                  <p>Professional paving for driveways, walkways, patios, and commercial parking areas.</p>
+                  <span class="service-tag">Installation</span>
+                </div>
+              </div>
+            </div>
+            
+            <div class="swiper-slide" data-category="installation">
               <div class="service-card">
                 <div class="service-image-wrapper">
                   <img src="./IMAGES/Garage_Door_Installation.jpeg" alt="Garage Door Installation" class="service-image" loading="lazy">
                 </div>
                 <div class="service-content">
-                  <h3>Gates & Garage Installations</h3>
-                  <p>Automated gates, garage doors, and security enhancements for your property.</p>
+                  <h3>Garage Door Installation</h3>
+                  <p>Supply and installation of automated garage doors, gates, and access control systems.</p>
+                  <span class="service-tag">Installation</span>
                 </div>
               </div>
             </div>
             
-            <div class="swiper-slide">
+            <div class="swiper-slide" data-category="installation">
               <div class="service-card">
                 <div class="service-image-wrapper">
-                  <img src="./IMAGES/Steelwork_And_Installation_Services.jpeg" alt="Steelwork and Installation Services" class="service-image" loading="lazy">
+                  <img src="./IMAGES/Steelwork_And_Installation_Services.jpeg" alt="Steelwork Installation" class="service-image" loading="lazy">
                 </div>
                 <div class="service-content">
-                  <h3>Steelwork & Structural Installation</h3>
-                  <p>Custom steel structures, carports, and industrial installations with precision engineering.</p>
+                  <h3>Steelwork & Metal Fabrication</h3>
+                  <p>Custom steel gates, burglar bars, staircases, and structural metal installations.</p>
+                  <span class="service-tag">Installation</span>
                 </div>
               </div>
             </div>
             
-            <div class="swiper-slide">
+            <!-- Security Services -->
+            <div class="swiper-slide" data-category="security">
+              <div class="service-card">
+                <div class="service-image-wrapper">
+                  <div class="service-placeholder">🔒</div>
+                </div>
+                <div class="service-content">
+                  <h3>Security Solutions</h3>
+                  <p>Comprehensive security installations including burglar bars, security gates, and fencing for homes and businesses.</p>
+                  <span class="service-tag">Security</span>
+                </div>
+              </div>
+            </div>
+            
+            <div class="swiper-slide" data-category="security">
+              <div class="service-card">
+                <div class="service-image-wrapper">
+                  <div class="service-placeholder">🚪</div>
+                </div>
+                <div class="service-content">
+                  <h3>Steel Gates & Burglar Bars</h3>
+                  <p>Custom-designed steel security gates, window burglar bars, and expandable security barriers.</p>
+                  <span class="service-tag">Security</span>
+                </div>
+              </div>
+            </div>
+            
+            <div class="swiper-slide" data-category="security">
+              <div class="service-card">
+                <div class="service-image-wrapper">
+                  <div class="service-placeholder">⚡</div>
+                </div>
+                <div class="service-content">
+                  <h3>Gate & Garage Automation</h3>
+                  <p>Automation of existing gates and garage doors with remote controls, sensors, and smart access systems.</p>
+                  <span class="service-tag">Security</span>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Maintenance Services -->
+            <div class="swiper-slide" data-category="maintenance">
+              <div class="service-card">
+                <div class="service-image-wrapper">
+                  <div class="service-placeholder">🔧</div>
+                </div>
+                <div class="service-content">
+                  <h3>Electrical Work</h3>
+                  <p>Electrical installations, repairs, compliance certificates, geyser timers, and DB board upgrades.</p>
+                  <span class="service-tag">Maintenance</span>
+                </div>
+              </div>
+            </div>
+            
+            <div class="swiper-slide" data-category="maintenance">
+              <div class="service-card">
+                <div class="service-image-wrapper">
+                  <div class="service-placeholder">🚿</div>
+                </div>
+                <div class="service-content">
+                  <h3>Plumbing Services</h3>
+                  <p>Plumbing installations, leak detection, geyser repairs, drainage solutions, and bathroom plumbing.</p>
+                  <span class="service-tag">Maintenance</span>
+                </div>
+              </div>
+            </div>
+            
+            <div class="swiper-slide" data-category="maintenance">
+              <div class="service-card">
+                <div class="service-image-wrapper">
+                  <div class="service-placeholder">🏠</div>
+                </div>
+                <div class="service-content">
+                  <h3>Roof Maintenance</h3>
+                  <p>Roof inspections, repairs, waterproofing, gutter installation, and complete roof replacements.</p>
+                  <span class="service-tag">Maintenance</span>
+                </div>
+              </div>
+            </div>
+            
+            <!-- CTA Slide -->
+            <div class="swiper-slide" data-category="all">
               <div class="service-card service-card-cta">
                 <div class="service-cta-content">
                   <div class="cta-icon">💡</div>
@@ -256,7 +408,7 @@
           <div class="about-card">
             <div class="about-icon">🎯</div>
             <h3>Our Mission</h3>
-            <p>To deliver reliable, high-quality building solutions across Gauteng Province with integrity, transparency, and professional excellence.</p>
+            <p>To deliver reliable, high-quality building solutions across Vereeniging and the Vaal Triangle with integrity, transparency, and professional excellence.</p>
           </div>
           
           <div class="about-card">
@@ -274,95 +426,101 @@
       </div>
     </section>
 
-    <!-- PROJECTS SECTION -->
+    <!-- PROJECTS SECTION WITH MODALS -->
     <section id="projects" class="section-padding bg-alt">
       <div class="container">
         <div class="section-header">
           <h2 class="section-title">Recent <span>Projects</span></h2>
-          <p class="section-subtitle">Showcasing our commitment to quality craftsmanship</p>
+          <p class="section-subtitle">Click on any project to see more details and images</p>
         </div>
         
         <div class="project-grid">
-          <div class="project-card">
+          <!-- Project 1: House Renovation -->
+          <div class="project-card" data-project="house-renovation">
             <div class="project-image-wrapper">
               <img src="./IMAGES/House_Renovations.jpeg" alt="House Renovation Project" class="project-image" loading="lazy">
               <div class="project-overlay">
-                <span class="project-view-text">View Project</span>
+                <span class="project-view-text">Click for Details</span>
               </div>
             </div>
             <div class="project-info">
               <h4>Full House Renovation</h4>
-              <p>Complete interior and exterior transformation with modern finishes.</p>
+              <p>Complete interior and exterior transformation</p>
               <span class="project-tag">Renovation</span>
             </div>
           </div>
           
-          <div class="project-card">
+          <!-- Project 2: Bathroom Renovation -->
+          <div class="project-card" data-project="bathroom-renovation">
             <div class="project-image-wrapper">
               <img src="./IMAGES/Bathroom_Renovations.jpeg" alt="Bathroom Renovation Project" class="project-image" loading="lazy">
               <div class="project-overlay">
-                <span class="project-view-text">View Project</span>
+                <span class="project-view-text">Click for Details</span>
               </div>
             </div>
             <div class="project-info">
               <h4>Bathroom Renovation</h4>
-              <p>Modern bathroom upgrade with premium tiling and fixtures.</p>
+              <p>Modern bathroom upgrade with premium finishes</p>
               <span class="project-tag">Renovation</span>
             </div>
           </div>
           
-          <div class="project-card">
+          <!-- Project 3: Kitchen Renovation -->
+          <div class="project-card" data-project="kitchen-renovation">
             <div class="project-image-wrapper">
               <img src="./IMAGES/Kitchen_Renovations.jpeg" alt="Kitchen Renovation Project" class="project-image" loading="lazy">
               <div class="project-overlay">
-                <span class="project-view-text">View Project</span>
+                <span class="project-view-text">Click for Details</span>
               </div>
             </div>
             <div class="project-info">
               <h4>Kitchen Renovation</h4>
-              <p>Custom kitchen design with modern cabinetry and countertops.</p>
+              <p>Custom kitchen design with modern cabinetry</p>
               <span class="project-tag">Renovation</span>
             </div>
           </div>
           
-          <div class="project-card">
+          <!-- Project 4: Paving Installation -->
+          <div class="project-card" data-project="paving-installation">
             <div class="project-image-wrapper">
               <img src="./IMAGES/Pavement_Installation.jpeg" alt="Paving Installation Project" class="project-image" loading="lazy">
               <div class="project-overlay">
-                <span class="project-view-text">View Project</span>
+                <span class="project-view-text">Click for Details</span>
               </div>
             </div>
             <div class="project-info">
               <h4>Driveway Paving</h4>
-              <p>Durable and aesthetic paving installation for residential property.</p>
+              <p>Durable and aesthetic paving installation</p>
               <span class="project-tag">Paving</span>
             </div>
           </div>
           
-          <div class="project-card">
+          <!-- Project 5: Steel Structure -->
+          <div class="project-card" data-project="steel-structure">
             <div class="project-image-wrapper">
               <img src="./IMAGES/Steel_Structure_Construction.jpeg" alt="Steel Structure Construction" class="project-image" loading="lazy">
               <div class="project-overlay">
-                <span class="project-view-text">View Project</span>
+                <span class="project-view-text">Click for Details</span>
               </div>
             </div>
             <div class="project-info">
               <h4>Steel Structure</h4>
-              <p>Custom steel framework for commercial building extension.</p>
+              <p>Custom steel framework for building extension</p>
               <span class="project-tag">Construction</span>
             </div>
           </div>
           
-          <div class="project-card">
+          <!-- Project 6: Interior Design -->
+          <div class="project-card" data-project="interior-design">
             <div class="project-image-wrapper">
               <img src="./IMAGES/Interior_Design.jpeg" alt="Interior Design Project" class="project-image" loading="lazy">
               <div class="project-overlay">
-                <span class="project-view-text">View Project</span>
+                <span class="project-view-text">Click for Details</span>
               </div>
             </div>
             <div class="project-info">
               <h4>Interior Design</h4>
-              <p>Complete interior design and finishing for modern living spaces.</p>
+              <p>Complete interior design and finishing</p>
               <span class="project-tag">Design</span>
             </div>
           </div>
@@ -376,6 +534,256 @@
         </div>
       </div>
     </section>
+
+    <!-- PROJECT MODALS -->
+    <!-- Modal 1: House Renovation -->
+    <div class="project-modal" id="modal-house-renovation">
+      <div class="modal-overlay"></div>
+      <div class="modal-content">
+        <button class="modal-close">&times;</button>
+        <div class="modal-body">
+          <div class="modal-gallery">
+            <div class="modal-main-image">
+              <img src="./IMAGES/House_Renovations.jpeg" alt="House Renovation - Main" id="modal-main-img-house-renovation">
+            </div>
+            <div class="modal-thumbnails">
+              <img src="./IMAGES/House_Renovations.jpeg" alt="House Renovation 1" class="modal-thumb active" data-main-img="./IMAGES/House_Renovations.jpeg">
+              <img src="./IMAGES/Bathroom_Renovations_2.jpeg" alt="House Renovation 2" class="modal-thumb" data-main-img="./IMAGES/Bathroom_Renovations_2.jpeg">
+              <img src="./IMAGES/Interior_Design.jpeg" alt="House Renovation 3" class="modal-thumb" data-main-img="./IMAGES/Interior_Design.jpeg">
+            </div>
+          </div>
+          <div class="modal-details">
+            <span class="modal-tag">Renovation</span>
+            <h2>Full House Renovation</h2>
+            <div class="modal-meta">
+              <span>📍 Arcon Park, Vereeniging</span>
+              <span>📅 Completed: June 2025</span>
+              <span>⏱️ Duration: 8 weeks</span>
+            </div>
+            <h4>Project Overview</h4>
+            <p>Complete interior and exterior transformation of a 3-bedroom family home. The project included structural modifications, modern finishes, and energy-efficient upgrades throughout the property.</p>
+            <h4>Scope of Work</h4>
+            <ul>
+              <li>Complete interior wall removal and reconfiguration</li>
+              <li>Modern kitchen installation with granite countertops</li>
+              <li>Two bathroom full renovations with premium fixtures</li>
+              <li>New flooring throughout (tiles and laminate)</li>
+              <li>Fresh painting interior and exterior</li>
+              <li>New aluminum windows and doors</li>
+              <li>Electrical rewiring and LED downlight installation</li>
+              <li>Plumbing upgrades and geyser replacement</li>
+            </ul>
+            <h4>Client Testimonial</h4>
+            <blockquote>"Nathi Projects transformed our old house into a dream home. Professional, on-time, and exceeded our expectations!"</blockquote>
+            <a href="https://wa.me/27672280060?text=Hi%20Nathi%20Projects%2C%20I'm%20interested%20in%20a%20house%20renovation%20similar%20to%20your%20recent%20project." target="_blank" rel="noopener" class="btn btn-red">Enquire About Similar Project</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal 2: Bathroom Renovation -->
+    <div class="project-modal" id="modal-bathroom-renovation">
+      <div class="modal-overlay"></div>
+      <div class="modal-content">
+        <button class="modal-close">&times;</button>
+        <div class="modal-body">
+          <div class="modal-gallery">
+            <div class="modal-main-image">
+              <img src="./IMAGES/Bathroom_Renovations.jpeg" alt="Bathroom Renovation - Main" id="modal-main-img-bathroom-renovation">
+            </div>
+            <div class="modal-thumbnails">
+              <img src="./IMAGES/Bathroom_Renovations.jpeg" alt="Bathroom 1" class="modal-thumb active" data-main-img="./IMAGES/Bathroom_Renovations.jpeg">
+              <img src="./IMAGES/Bathroom_Renovations_2.jpeg" alt="Bathroom 2" class="modal-thumb" data-main-img="./IMAGES/Bathroom_Renovations_2.jpeg">
+            </div>
+          </div>
+          <div class="modal-details">
+            <span class="modal-tag">Renovation</span>
+            <h2>Bathroom Renovation</h2>
+            <div class="modal-meta">
+              <span>📍 Rust-Ter-Vaal, Vereeniging</span>
+              <span>📅 Completed: March 2025</span>
+              <span>⏱️ Duration: 3 weeks</span>
+            </div>
+            <h4>Project Overview</h4>
+            <p>Complete bathroom overhaul with modern design elements, premium fixtures, and quality waterproofing for long-lasting durability.</p>
+            <h4>Scope of Work</h4>
+            <ul>
+              <li>Full demolition and debris removal</li>
+              <li>Waterproofing treatment</li>
+              <li>Modern tile installation (floor to ceiling)</li>
+              <li>Frameless glass shower installation</li>
+              <li>Freestanding bathtub installation</li>
+              <li>Vanity and mirror installation</li>
+              <li>New plumbing and fixtures</li>
+              <li>LED lighting and extraction fan</li>
+            </ul>
+            <a href="https://wa.me/27672280060?text=Hi%20Nathi%20Projects%2C%20I'm%20interested%20in%20a%20bathroom%20renovation." target="_blank" rel="noopener" class="btn btn-red">Enquire About Similar Project</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal 3: Kitchen Renovation -->
+    <div class="project-modal" id="modal-kitchen-renovation">
+      <div class="modal-overlay"></div>
+      <div class="modal-content">
+        <button class="modal-close">&times;</button>
+        <div class="modal-body">
+          <div class="modal-gallery">
+            <div class="modal-main-image">
+              <img src="./IMAGES/Kitchen_Renovations.jpeg" alt="Kitchen Renovation - Main" id="modal-main-img-kitchen-renovation">
+            </div>
+            <div class="modal-thumbnails">
+              <img src="./IMAGES/Kitchen_Renovations.jpeg" alt="Kitchen 1" class="modal-thumb active" data-main-img="./IMAGES/Kitchen_Renovations.jpeg">
+              <img src="./IMAGES/Interior_Design.jpeg" alt="Kitchen 2" class="modal-thumb" data-main-img="./IMAGES/Interior_Design.jpeg">
+            </div>
+          </div>
+          <div class="modal-details">
+            <span class="modal-tag">Renovation</span>
+            <h2>Kitchen Renovation</h2>
+            <div class="modal-meta">
+              <span>📍 Arcon Park, Vereeniging</span>
+              <span>📅 Completed: April 2025</span>
+              <span>⏱️ Duration: 4 weeks</span>
+            </div>
+            <h4>Project Overview</h4>
+            <p>Modern kitchen transformation with custom cabinetry, premium countertops, and open-plan design for better flow and functionality.</p>
+            <h4>Scope of Work</h4>
+            <ul>
+              <li>Custom kitchen cabinetry design and installation</li>
+              <li>Granite countertop installation</li>
+              <li>Tile backsplash installation</li>
+              <li>Plumbing modifications for new layout</li>
+              <li>Electrical work for appliances and lighting</li>
+              <li>Breakfast nook installation</li>
+              <li>Floor tiling</li>
+            </ul>
+            <a href="https://wa.me/27672280060?text=Hi%20Nathi%20Projects%2C%20I'm%20interested%20in%20a%20kitchen%20renovation." target="_blank" rel="noopener" class="btn btn-red">Enquire About Similar Project</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal 4: Paving -->
+    <div class="project-modal" id="modal-paving-installation">
+      <div class="modal-overlay"></div>
+      <div class="modal-content">
+        <button class="modal-close">&times;</button>
+        <div class="modal-body">
+          <div class="modal-gallery">
+            <div class="modal-main-image">
+              <img src="./IMAGES/Pavement_Installation.jpeg" alt="Paving Installation - Main" id="modal-main-img-paving-installation">
+            </div>
+            <div class="modal-thumbnails">
+              <img src="./IMAGES/Pavement_Installation.jpeg" alt="Paving 1" class="modal-thumb active" data-main-img="./IMAGES/Pavement_Installation.jpeg">
+            </div>
+          </div>
+          <div class="modal-details">
+            <span class="modal-tag">Paving</span>
+            <h2>Driveway & Walkway Paving</h2>
+            <div class="modal-meta">
+              <span>📍 Vereeniging</span>
+              <span>📅 Completed: February 2025</span>
+              <span>⏱️ Duration: 2 weeks</span>
+            </div>
+            <h4>Project Overview</h4>
+            <p>Complete driveway and walkway paving installation using high-quality interlocking pavers for durability and aesthetic appeal.</p>
+            <h4>Scope of Work</h4>
+            <ul>
+              <li>Site excavation and preparation</li>
+              <li>Sub-base compaction and leveling</li>
+              <li>Edge restraint installation</li>
+              <li>Paver laying in herringbone pattern</li>
+              <li>Joint sand application and compaction</li>
+              <li>Drainage channel installation</li>
+            </ul>
+            <a href="https://wa.me/27672280060?text=Hi%20Nathi%20Projects%2C%20I'm%20interested%20in%20paving%20installation." target="_blank" rel="noopener" class="btn btn-red">Enquire About Similar Project</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal 5: Steel Structure -->
+    <div class="project-modal" id="modal-steel-structure">
+      <div class="modal-overlay"></div>
+      <div class="modal-content">
+        <button class="modal-close">&times;</button>
+        <div class="modal-body">
+          <div class="modal-gallery">
+            <div class="modal-main-image">
+              <img src="./IMAGES/Steel_Structure_Construction.jpeg" alt="Steel Structure - Main" id="modal-main-img-steel-structure">
+            </div>
+            <div class="modal-thumbnails">
+              <img src="./IMAGES/Steel_Structure_Construction.jpeg" alt="Steel 1" class="modal-thumb active" data-main-img="./IMAGES/Steel_Structure_Construction.jpeg">
+              <img src="./IMAGES/Steelwork_And_Installation_Services.jpeg" alt="Steel 2" class="modal-thumb" data-main-img="./IMAGES/Steelwork_And_Installation_Services.jpeg">
+              <img src="./IMAGES/Steelwork_And_Installation_Services_2.jpeg" alt="Steel 3" class="modal-thumb" data-main-img="./IMAGES/Steelwork_And_Installation_Services_2.jpeg">
+            </div>
+          </div>
+          <div class="modal-details">
+            <span class="modal-tag">Construction</span>
+            <h2>Steel Structure Construction</h2>
+            <div class="modal-meta">
+              <span>📍 Vaal Region</span>
+              <span>📅 Completed: January 2025</span>
+              <span>⏱️ Duration: 6 weeks</span>
+            </div>
+            <h4>Project Overview</h4>
+            <p>Custom steel framework for a commercial building extension, designed for strength, durability, and cost-effectiveness.</p>
+            <h4>Scope of Work</h4>
+            <ul>
+              <li>Structural engineering and design</li>
+              <li>Steel fabrication and welding</li>
+              <li>Column and beam installation</li>
+              <li>Roof truss assembly and installation</li>
+              <li>Corrosion protection treatment</li>
+              <li>Final inspection and certification</li>
+            </ul>
+            <a href="https://wa.me/27672280060?text=Hi%20Nathi%20Projects%2C%20I'm%20interested%20in%20steel%20structure%20construction." target="_blank" rel="noopener" class="btn btn-red">Enquire About Similar Project</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal 6: Interior Design -->
+    <div class="project-modal" id="modal-interior-design">
+      <div class="modal-overlay"></div>
+      <div class="modal-content">
+        <button class="modal-close">&times;</button>
+        <div class="modal-body">
+          <div class="modal-gallery">
+            <div class="modal-main-image">
+              <img src="./IMAGES/Interior_Design.jpeg" alt="Interior Design - Main" id="modal-main-img-interior-design">
+            </div>
+            <div class="modal-thumbnails">
+              <img src="./IMAGES/Interior_Design.jpeg" alt="Interior 1" class="modal-thumb active" data-main-img="./IMAGES/Interior_Design.jpeg">
+              <img src="./IMAGES/Bathroom_Renovations_2.jpeg" alt="Interior 2" class="modal-thumb" data-main-img="./IMAGES/Bathroom_Renovations_2.jpeg">
+            </div>
+          </div>
+          <div class="modal-details">
+            <span class="modal-tag">Design</span>
+            <h2>Interior Design & Finishing</h2>
+            <div class="modal-meta">
+              <span>📍 Arcon Park, Vereeniging</span>
+              <span>📅 Completed: May 2025</span>
+              <span>⏱️ Duration: 5 weeks</span>
+            </div>
+            <h4>Project Overview</h4>
+            <p>Complete interior design overhaul for a modern living space, incorporating contemporary aesthetics with practical functionality.</p>
+            <h4>Scope of Work</h4>
+            <ul>
+              <li>Interior design consultation and planning</li>
+              <li>Wall preparation and premium painting</li>
+              <li>Feature wall installations</li>
+              <li>Ceiling and cornice upgrades</li>
+              <li>Skirting and architrave installation</li>
+              <li>Lighting design and installation</li>
+              <li>Final styling and finishing touches</li>
+            </ul>
+            <a href="https://wa.me/27672280060?text=Hi%20Nathi%20Projects%2C%20I'm%20interested%20in%20interior%20design%20services." target="_blank" rel="noopener" class="btn btn-red">Enquire About Similar Project</a>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <!-- TESTIMONIALS SECTION -->
     <section id="testimonials" class="section-padding">
@@ -454,7 +862,6 @@
           </div>
         </div>
         
-        <!-- WhatsApp Quick Enquiry -->
         <div class="whatsapp-box" id="whatsappBox">
           <h3>Send Us a Quick WhatsApp</h3>
           <p>Fill in your details and we'll open a chat for you</p>
@@ -470,7 +877,11 @@
                 <option value="New Construction">New Construction</option>
                 <option value="Renovations">Renovations & Remodeling</option>
                 <option value="Paving & Gates">Paving & Gates</option>
+                <option value="Electrical Work">Electrical Work</option>
+                <option value="Plumbing">Plumbing Services</option>
+                <option value="Security Solutions">Security Solutions</option>
                 <option value="Steelwork">Steelwork & Structural</option>
+                <option value="Roof Maintenance">Roof Maintenance</option>
                 <option value="Other">Other / Not Sure</option>
               </select>
             </div>
@@ -501,7 +912,7 @@
             </div>
           </div>
           <p class="footer-description">
-            Your trusted partner for quality construction, renovations, and building solutions in the province of Gauteng and beyond.
+            Your trusted partner for quality construction, renovations, and building solutions in the Vaal Region.
           </p>
           <div class="footer-social">
             <a href="https://web.facebook.com/natradprojects13" target="_blank" rel="noopener" class="footer-social-link" aria-label="Facebook">

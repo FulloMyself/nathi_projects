@@ -18,6 +18,7 @@
   // ----- State -----
   let isMobileMenuOpen = false;
   let lastScrollY = 0;
+  let servicesSwiper = null;
 
   // ----- Initialize Swiper Carousel -----
   function initSwiper() {
@@ -26,7 +27,7 @@
       return;
     }
 
-    const swiper = new Swiper('#servicesSwiper', {
+    servicesSwiper = new Swiper('#servicesSwiper', {
       slidesPerView: 1,
       spaceBetween: 20,
       loop: true,
@@ -44,26 +45,127 @@
       },
       
       breakpoints: {
-        // Tablet
         640: {
           slidesPerView: 2,
           spaceBetween: 24,
         },
-        // Desktop
         1024: {
           slidesPerView: 3,
           spaceBetween: 28,
         },
       },
-      
-      on: {
-        init: function() {
-          console.log('Swiper initialized');
-        },
-      },
     });
 
-    return swiper;
+    return servicesSwiper;
+  }
+
+  // ----- Service Filter Functionality -----
+  function initServiceFilters() {
+    const filterButtons = document.querySelectorAll('.service-filter-btn');
+    
+    filterButtons.forEach(button => {
+      button.addEventListener('click', function() {
+        // Update active button
+        filterButtons.forEach(btn => btn.classList.remove('active'));
+        this.classList.add('active');
+        
+        const category = this.getAttribute('data-category');
+        
+        // If using Swiper, we need to filter slides
+        if (servicesSwiper) {
+          filterSwiperSlides(category);
+        }
+      });
+    });
+  }
+
+  function filterSwiperSlides(category) {
+    const slides = document.querySelectorAll('#servicesSwiper .swiper-slide');
+    
+    if (category === 'all') {
+      // Show all slides
+      slides.forEach(slide => {
+        slide.style.display = '';
+      });
+    } else {
+      // Show only matching slides
+      slides.forEach(slide => {
+        const slideCategory = slide.getAttribute('data-category');
+        if (slideCategory === category || slideCategory === 'all') {
+          slide.style.display = '';
+        } else {
+          slide.style.display = 'none';
+        }
+      });
+    }
+    
+    // Update Swiper after filtering
+    if (servicesSwiper) {
+      servicesSwiper.update();
+      servicesSwiper.slideTo(0);
+    }
+  }
+
+  // ----- Project Modal Functionality -----
+  function initProjectModals() {
+    const projectCards = document.querySelectorAll('.project-card[data-project]');
+    const modals = document.querySelectorAll('.project-modal');
+    
+    // Open modal
+    projectCards.forEach(card => {
+      card.addEventListener('click', function() {
+        const projectId = this.getAttribute('data-project');
+        const modal = document.getElementById(`modal-${projectId}`);
+        if (modal) {
+          openModal(modal);
+        }
+      });
+    });
+    
+    // Close modal handlers
+    modals.forEach(modal => {
+      const closeBtn = modal.querySelector('.modal-close');
+      const overlay = modal.querySelector('.modal-overlay');
+      
+      closeBtn.addEventListener('click', () => closeModal(modal));
+      overlay.addEventListener('click', () => closeModal(modal));
+      
+      // Close on Escape key
+      modal.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') closeModal(modal);
+      });
+    });
+    
+    // Thumbnail switching
+    document.querySelectorAll('.modal-thumb').forEach(thumb => {
+      thumb.addEventListener('click', function() {
+        const mainImgSrc = this.getAttribute('data-main-img');
+        const modalId = this.closest('.project-modal').id;
+        const mainImg = document.getElementById(`modal-main-img-${modalId.replace('modal-', '')}`);
+        
+        if (mainImg && mainImgSrc) {
+          mainImg.src = mainImgSrc;
+          
+          // Update active thumbnail
+          this.parentElement.querySelectorAll('.modal-thumb').forEach(t => t.classList.remove('active'));
+          this.classList.add('active');
+        }
+      });
+    });
+  }
+
+  function openModal(modal) {
+    modal.classList.add('active');
+    document.body.classList.add('modal-open');
+    
+    // Focus trap
+    const closeBtn = modal.querySelector('.modal-close');
+    if (closeBtn) closeBtn.focus();
+  }
+
+  function closeModal(modal) {
+    modal.classList.remove('active');
+    document.body.classList.remove('modal-open');
   }
 
   // ----- Mobile Menu Toggle -----
@@ -76,19 +178,6 @@
     } else {
       navLinks.classList.remove('active');
       document.body.style.overflow = '';
-    }
-    
-    // Animate hamburger
-    const hamburger = mobileToggle.querySelector('.hamburger');
-    if (hamburger) {
-      if (isMobileMenuOpen) {
-        hamburger.style.transform = 'rotate(45deg)';
-        hamburger.style.top = '0';
-        const before = hamburger.querySelector('::before');
-        const after = hamburger.querySelector('::after');
-      } else {
-        hamburger.style.transform = 'rotate(0deg)';
-      }
     }
   }
 
@@ -104,14 +193,12 @@
   function handleScroll() {
     const currentScrollY = window.scrollY;
     
-    // Add shadow on scroll
     if (currentScrollY > 20) {
       siteHeader.classList.add('scrolled');
     } else {
       siteHeader.classList.remove('scrolled');
     }
     
-    // Hide floating button when near footer
     if (floatingWA) {
       const footer = document.querySelector('.footer');
       if (footer) {
@@ -134,13 +221,7 @@
   // ----- Animated Counters -----
   function initCounters() {
     const statNumbers = document.querySelectorAll('.stat-number[data-count]');
-    
     if (statNumbers.length === 0) return;
-
-    const observerOptions = {
-      threshold: 0.5,
-      rootMargin: '0px 0px -50px 0px',
-    };
 
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
@@ -148,12 +229,11 @@
           const el = entry.target;
           const target = parseInt(el.getAttribute('data-count'), 10);
           const duration = parseInt(el.getAttribute('data-duration'), 10) || 2000;
-          
           animateCounter(el, target, duration);
           observer.unobserve(el);
         }
       });
-    }, observerOptions);
+    }, { threshold: 0.5 });
 
     statNumbers.forEach(num => observer.observe(num));
   }
@@ -165,8 +245,6 @@
     function updateCounter(currentTime) {
       const elapsed = currentTime - startTime;
       const progress = Math.min(elapsed / duration, 1);
-      
-      // Easing function for smooth animation
       const eased = 1 - Math.pow(1 - progress, 3);
       const currentValue = Math.floor(startValue + (target - startValue) * eased);
       
@@ -188,16 +266,7 @@
       '.service-card, .about-card, .project-card, .testimonial-card, .contact-tile'
     );
     
-    if (revealElements.length === 0) return;
-
-    revealElements.forEach(el => {
-      el.classList.add('reveal');
-    });
-
-    const observerOptions = {
-      threshold: 0.15,
-      rootMargin: '0px 0px -40px 0px',
-    };
+    revealElements.forEach(el => el.classList.add('reveal'));
 
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
@@ -206,7 +275,7 @@
           observer.unobserve(entry.target);
         }
       });
-    }, observerOptions);
+    }, { threshold: 0.15 });
 
     revealElements.forEach(el => observer.observe(el));
   }
@@ -219,62 +288,32 @@
     const service = waServiceSelect.value;
     const message = waMessageInput.value.trim();
     
-    // Build WhatsApp message
     let waMessage = 'Hello Nathi Projects,';
+    if (name) waMessage += ` my name is ${name}.`;
+    if (service) waMessage += ` I'm interested in: ${service}.`;
+    if (message) waMessage += ` ${message}`;
+    if (!name && !service && !message) waMessage += ' I would like to enquire about your services.';
     
-    if (name) {
-      waMessage += ` my name is ${name}.`;
-    }
-    
-    if (service) {
-      waMessage += ` I'm interested in: ${service}.`;
-    }
-    
-    if (message) {
-      waMessage += ` ${message}`;
-    }
-    
-    if (!name && !service && !message) {
-      waMessage += ' I would like to enquire about your services.';
-    }
-    
-    // Encode and open WhatsApp
-    const encodedMessage = encodeURIComponent(waMessage);
-    const whatsappURL = `https://wa.me/27672280060?text=${encodedMessage}`;
-    
-    window.open(whatsappURL, '_blank', 'noopener,noreferrer');
-    
-    // Optional: Reset form
+    window.open(`https://wa.me/27672280060?text=${encodeURIComponent(waMessage)}`, '_blank', 'noopener,noreferrer');
     whatsappForm.reset();
   }
 
-  // ----- Smooth Scroll for Navigation Links -----
+  // ----- Smooth Scroll -----
   function initSmoothScroll() {
-    const allNavLinks = document.querySelectorAll('a[href^="#"]');
-    
-    allNavLinks.forEach(link => {
+    document.querySelectorAll('a[href^="#"]').forEach(link => {
       link.addEventListener('click', function(e) {
         const href = this.getAttribute('href');
-        
-        // Only process internal links
         if (href === '#') return;
         
         const targetElement = document.querySelector(href);
-        
         if (targetElement) {
           e.preventDefault();
-          
-          // Close mobile menu if open
           closeMobileMenu();
           
-          // Smooth scroll to target
           const headerHeight = siteHeader.offsetHeight;
           const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight - 20;
           
-          window.scrollTo({
-            top: targetPosition,
-            behavior: 'smooth',
-          });
+          window.scrollTo({ top: targetPosition, behavior: 'smooth' });
         }
       });
     });
@@ -282,71 +321,49 @@
 
   // ----- Event Listeners -----
   function bindEvents() {
-    // Mobile menu
-    if (mobileToggle) {
-      mobileToggle.addEventListener('click', toggleMobileMenu);
-    }
+    if (mobileToggle) mobileToggle.addEventListener('click', toggleMobileMenu);
     
-    // Close mobile menu when clicking nav links
     if (navLinks) {
       navLinks.addEventListener('click', (e) => {
-        if (e.target.classList.contains('nav-link')) {
-          closeMobileMenu();
-        }
+        if (e.target.classList.contains('nav-link')) closeMobileMenu();
       });
     }
     
-    // Close mobile menu when clicking outside
     document.addEventListener('click', (e) => {
-      if (isMobileMenuOpen && 
-          !navLinks.contains(e.target) && 
-          !mobileToggle.contains(e.target)) {
+      if (isMobileMenuOpen && !navLinks.contains(e.target) && !mobileToggle.contains(e.target)) {
         closeMobileMenu();
       }
     });
     
-    // Scroll handler
     window.addEventListener('scroll', handleScroll, { passive: true });
     
-    // WhatsApp form
-    if (whatsappForm) {
-      whatsappForm.addEventListener('submit', handleWhatsAppSubmit);
-    }
+    if (whatsappForm) whatsappForm.addEventListener('submit', handleWhatsAppSubmit);
     
-    // Resize handler - close mobile menu on desktop
     window.addEventListener('resize', () => {
-      if (window.innerWidth > 768 && isMobileMenuOpen) {
-        closeMobileMenu();
+      if (window.innerWidth > 768 && isMobileMenuOpen) closeMobileMenu();
+    });
+    
+    // Keyboard handler for modals
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        const activeModal = document.querySelector('.project-modal.active');
+        if (activeModal) closeModal(activeModal);
       }
     });
   }
 
-  // ----- Initialize Everything -----
+  // ----- Initialize -----
   function init() {
-    console.log('Nathi Projects - Initializing...');
-    
-    // Initialize Swiper
     initSwiper();
-    
-    // Initialize counters
+    initServiceFilters();
+    initProjectModals();
     initCounters();
-    
-    // Initialize scroll reveal
     initScrollReveal();
-    
-    // Initialize smooth scroll
     initSmoothScroll();
-    
-    // Bind events
     bindEvents();
-    
-    // Initial scroll check
     handleScroll();
-    
-    console.log('Nathi Projects - Initialized successfully');
   }
 
-  // ----- Start on DOM Ready -----
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', init);
   } else {
